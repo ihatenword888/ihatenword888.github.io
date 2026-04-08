@@ -1,0 +1,4 @@
+version: "3"
+agent:
+    authtoken: 2u8KY1rb3dIFqorfx6CD0aPGtsu_2xHRLrAqFw59BwB8Zpbov
+    connect_url: "localhost:5173"
