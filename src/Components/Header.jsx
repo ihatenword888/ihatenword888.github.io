@@ -1,26 +1,45 @@
-import { Status } from "@/Classes/Status"
-import { DeveloperInfo } from "@/Info"
+import { useState, useEffect } from 'react'
+import { site } from '../config'
+import './Header.css'
 
-function Header() {
-    DeveloperInfo.DeveloperName = "imnotlycky"
-    const status = new Status("unavailable")
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
-    DeveloperInfo.DeveloperStatus = status.getCurState()
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
-    const status_label = status.getLabel()
-    const status_color = status.getColor()
+  const handleNavClick = () => setMenuOpen(false)
 
-    return (
-        <header className="site-header">
-            <div className="header-block">
-                <button className="lycky available" type="button" aria-label="imnotlycky - Available for work">
-                    <span className="status-dot" aria-hidden="true" style={{backgroundColor: status_color.color, boxShadow: status_color.shadow}}></span>
-                    <span>{DeveloperInfo.DeveloperName}</span>
-                    <span className="status-tooltip">{status_label}</span>
-                </button>
-            </div>
-        </header>
-    )
+  return (
+    <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
+      <div className="header__inner">
+        <a href="#" className="header__logo">{site.name}</a>
+
+        <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
+          {site.navLinks.map(link => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="header__nav-link"
+              onClick={handleNavClick}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          className={`header__burger ${menuOpen ? 'header__burger--open' : ''}`}
+          onClick={() => setMenuOpen(prev => !prev)}
+          aria-label="toggle menu"
+        >
+          <span /><span /><span />
+        </button>
+      </div>
+    </header>
+  )
 }
-
-export default Header

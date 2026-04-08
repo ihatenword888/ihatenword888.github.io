@@ -1,0 +1,39 @@
+.skills__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.skills__group-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.skills__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skills__item {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  cursor: default;
+}
+
+.skills__item:hover {
+  color: var(--accent);
+  border-color: rgba(200, 250, 100, 0.2);
+  background: var(--accent-dim);
+}

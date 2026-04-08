@@ -1,0 +1,39 @@
+/* ============================================================
+   ROOT DESIGN TOKENS  —  change colors, fonts, spacing here
+   ============================================================ */
+:root {
+  /* --- colors --- */
+  --bg:           #0d0d0f;       /* page background              */
+  --bg-card:      #141417;       /* card / section background    */
+  --bg-hover:     #1c1c21;       /* hover state background       */
+  --border:       #222228;       /* subtle borders               */
+  --border-hover: #3a3a45;       /* border on hover              */
+
+  --text:         #e8e8ed;       /* primary text                 */
+  --text-muted:   #7a7a8c;       /* secondary / muted text       */
+  --text-dim:     #44445a;       /* very dim — decorative only   */
+
+  --accent:       #c8fa64;       /* primary accent (lime-ish)    */
+  --accent-dim:   rgba(200, 250, 100, 0.08); /* accent tint bg  */
+  --accent-glow:  rgba(200, 250, 100, 0.15); /* soft glow       */
+
+  /* --- typography --- */
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* --- spacing scale --- */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  8rem;
+
+  /* --- radii --- */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+
+  /* --- transitions --- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 200ms var(--ease);
+}
